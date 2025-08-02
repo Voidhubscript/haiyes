@@ -79,8 +79,8 @@ local Tabs = {
 local Generator = Tabs.Main:AddRightGroupbox('Generator')
 
 
-Generator:AddDropdown('FixMode', {
-	Values = {'Fast', 'Normal', 'Slow'},
+Generator:AddDropdown('Sữa máy', {
+	Values = {'rất nhanh', 'nhanh', 'bình thường'},
 	Default = 3,
 	Multi = false,
 	Text = 'Delay',
@@ -96,22 +96,22 @@ _G.AutoGen = v
 pcall(function()
 task.spawn(function()
 while _G.AutoGen do
-if _G.FixMode == "Fast" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
-wait(2)
+if _G.FixMode == "rất nhanh" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
+wait(1.7)
 for _,v in ipairs(workspace["Map"]["Ingame"]["Map"]:GetChildren()) do
 if v.Name == "Generator" then
 v.Remotes.RE:FireServer()
 end
 end
-elseif _G.FixMode == "Normal" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
-wait(4)
+elseif _G.FixMode == "nhanh" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
+wait(3.4)
 for _,v in ipairs(workspace["Map"]["Ingame"]["Map"]:GetChildren()) do
 if v.Name == "Generator" then
 v.Remotes.RE:FireServer()
 end
 end
-elseif _G.FixMode == "Slow" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
-wait(6)
+elseif _G.FixMode == "bình thường" and game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("PuzzleUI") then
+wait(4.8)
 for _,v in ipairs(workspace["Map"]["Ingame"]["Map"]:GetChildren()) do
 if v.Name == "Generator" then
 v.Remotes.RE:FireServer()
@@ -123,7 +123,7 @@ end
 end)
 end)
 end})
-Generator:AddToggle("AutoFarm",{
+Generator:AddToggle("fram tiền",{
 Text = "Framing from generator",
 Default = false,
 Callback = function(v)
